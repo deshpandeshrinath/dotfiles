@@ -247,3 +247,6 @@ function! s:Open(file)
 endfunction
 
 command! AC :call <SID>CreateRelated()
+
+autocmd FileType c setlocal foldmethod=syntax
+autocmd FileType python setlocal foldmethod=indent
