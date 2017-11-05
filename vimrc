@@ -47,6 +47,7 @@ set notimeout
 " highlight vertical column of cursor
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline
+
 set cursorline
 
 "key to insert mode with paste using F2 key
@@ -66,6 +67,10 @@ set incsearch     " do incremental searching
 set hlsearch      " highlight matches
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
 
 " Fuzzy finder: ignore stuff that can't be opened, and generated files
 let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
@@ -249,4 +254,16 @@ endfunction
 command! AC :call <SID>CreateRelated()
 
 autocmd FileType c setlocal foldmethod=syntax
+autocmd FileType cpp setlocal foldmethod=syntax
 autocmd FileType python setlocal foldmethod=indent
+autocmd FileType tex setlocal spell spelllang=en_us
+autocmd FileType markdown setlocal spell spelllang=en_us
+
+" command maps // in visual mode to run the commands y/<C-R>"<CR> which copies the visually selected text, then starts a search command and pastes the copied text into the search. <C-R> represents Ctrl-R and <CR> represents carriage return (Enter).
+vnoremap // y/<C-R>"<CR>
+
+" For local replace
+nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
+
+" For global replace
+nnoremap gR gD:%s/<C-R>///gc<left><left><left>
