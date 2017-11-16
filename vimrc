@@ -255,6 +255,7 @@ command! AC :call <SID>CreateRelated()
 
 autocmd FileType c setlocal foldmethod=syntax
 autocmd FileType cpp setlocal foldmethod=syntax
+autocmd FileType javascript setlocal foldmethod=indent
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType tex setlocal spell spelllang=en_us
 autocmd FileType markdown setlocal spell spelllang=en_us
@@ -267,3 +268,9 @@ nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 
 " For global replace
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+
+set cursorcolumn  " highlight current column
+
+:hi CursorLine   cterm=NONE ctermbg=darkgray ctermfg=NONE guibg=white guifg=white
+":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+":nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
