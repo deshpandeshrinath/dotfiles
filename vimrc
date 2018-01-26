@@ -255,6 +255,7 @@ command! AC :call <SID>CreateRelated()
 
 autocmd FileType c setlocal foldmethod=syntax
 autocmd FileType cpp setlocal foldmethod=syntax
+autocmd FileType html setlocal foldmethod=indent
 autocmd FileType javascript setlocal foldmethod=indent
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType tex setlocal spell spelllang=en_us
@@ -270,7 +271,12 @@ nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
 set cursorcolumn  " highlight current column
-
-:hi CursorLine   cterm=NONE ctermbg=darkgray ctermfg=NONE guibg=white guifg=white
+:hi CursorLine   cterm=NONE ctermbg=darkblue ctermfg=NONE guibg=white guifg=white
 ":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 ":nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+"highlight Cursor guifg=white guibg=black
+"highlight iCursor guifg=white guibg=steelblue
+"set guicursor=n-v-c:block-Cursor
+"set guicursor+=i:ver100-iCursor
+"set guicursor+=n-v-c:blinkon0
+"set guicursor+=i:blinkwait10
