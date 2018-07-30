@@ -107,6 +107,7 @@ augroup vimrcEx
 
   " Enable spellchecking for Markdown
   autocmd FileType markdown setlocal spell
+  autocmd FileType text setlocal spell
 
   " Automatically wrap at 80 characters for Markdown
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
@@ -156,8 +157,9 @@ set t_Co=256
 
 " Color scheme
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-set background=dark " or light
-colorscheme solarized
+"syntax enable
+"set background=dark
+"colorscheme solarized
 
 
 " Numbers
@@ -195,10 +197,10 @@ inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 " Get off my lawn - helpful when learning Vim :)
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+"nnoremap <Left> :echoe "Use h"<CR>
+"nnoremap <Right> :echoe "Use l"<CR>
+"nnoremap <Up> :echoe "Use k"<CR>
+"nnoremap <Down> :echoe "Use j"<CR>
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -221,8 +223,8 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
 " configure syntastic syntax checking to check on open as well as save
-let g:syntastic_ruby_checkers = ['mri']
-let g:syntastic_enable_highlighting=0
+"let g:syntastic_ruby_checkers = ['mri']
+"let g:syntastic_enable_highlighting=0
 
 " Remove trailing whitespace on save for ruby files.
 function! s:RemoveTrailingWhitespaces()
@@ -256,6 +258,7 @@ command! AC :call <SID>CreateRelated()
 autocmd FileType c setlocal foldmethod=syntax
 autocmd FileType cpp setlocal foldmethod=syntax
 autocmd FileType html setlocal foldmethod=indent
+autocmd FileType markdown setlocal foldmethod=indent
 autocmd FileType javascript setlocal foldmethod=indent
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType tex setlocal spell spelllang=en_us
@@ -280,3 +283,14 @@ set cursorcolumn  " highlight current column
 "set guicursor+=i:ver100-iCursor
 "set guicursor+=n-v-c:blinkon0
 "set guicursor+=i:blinkwait10
+
+Plugin 'matze/vim-tex-fold'
+
+ " path to directory where library can be found
+ let g:clang_library_path='/usr/lib/llvm-3.8/lib'
+ " or path directly to the library file
+ let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
+
+" for easy tab nevigation
+nnoremap <<Space><Left> :tabprevious<CR>
+nnoremap <<Space><Right> :tabnext<CR>
