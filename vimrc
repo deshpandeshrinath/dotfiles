@@ -10,7 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-
+Bundle 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -177,7 +177,7 @@ set t_Co=256
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "syntax enable
 "set background=dark
-"colorscheme solarized
+colorscheme solarized
 
 
 " Numbers
@@ -190,11 +190,11 @@ set undofile
 set undolevels=1000
 set undoreload=10000
 
-:nnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
-:nnoremap <expr> yy (v:register ==# '"' ? '"+' : '') . 'yy'
-:nnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
-:xnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
-:xnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
+":nnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
+":nnoremap <expr> yy (v:register ==# '"' ? '"+' : '') . 'yy'
+":nnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
+":xnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
+":xnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
 
 " Tab completion
 " will insert tab at beginning of line,
@@ -292,7 +292,9 @@ nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
 set cursorcolumn  " highlight current column
-:hi CursorLine   cterm=NONE ctermbg=darkblue ctermfg=NONE guibg=white guifg=white
+set cursorline
+
+":hi CursorLine   cterm=NONE ctermbg=darkblue ctermfg=NONE guibg=white guifg=white
 ":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 ":nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 "highlight Cursor guifg=white guibg=black
