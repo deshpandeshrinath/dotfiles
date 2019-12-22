@@ -314,3 +314,5 @@ Plugin 'matze/vim-tex-fold'
 " for easy tab nevigation
 nnoremap <<Space><Left> :tabprevious<CR>
 nnoremap <<Space><Right> :tabnext<CR>
+
+inoremap <Tab> <Esc>`^
