@@ -315,4 +315,4 @@ Plugin 'matze/vim-tex-fold'
 nnoremap <<Space><Left> :tabprevious<CR>
 nnoremap <<Space><Right> :tabnext<CR>
 
-inoremap <Tab> <Esc>`^
+:imap ii <Esc>
